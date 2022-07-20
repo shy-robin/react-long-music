@@ -52,4 +52,7 @@ export const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 		color: #fff;
 	}
+	* {
+		box-sizing: border-box;
+	}
 `
