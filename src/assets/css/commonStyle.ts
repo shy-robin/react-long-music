@@ -9,12 +9,36 @@ const extendClick = () => {
     };
   `
 }
-//一行文字溢出部分用...代替
-const noWrap = () => {
+
+const singleLineEllipsis = () => {
   return `
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+  `
+}
+
+const multiLineEllipsis = (lines: number) => {
+  return `
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: ${lines};
+    -webkit-box-orient: vertical;
+  `
+}
+
+const textShadowOnImage = () => {
+  return `
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0)
+    );
   `
 }
 
@@ -35,7 +59,9 @@ const commonStyle = {
   'background-color-shadow': 'rgba(0, 0, 0, 0.3)',
   'highlight-background-color': '#fff',
   extendClick,
-  noWrap,
+  singleLineEllipsis,
+  multiLineEllipsis,
+  textShadowOnImage,
 }
 
 export default commonStyle

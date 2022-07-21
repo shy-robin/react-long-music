@@ -20,6 +20,7 @@ const SliderContainer = styled.div`
 `
 
 interface Banner {
+  id: number
   imgUrl: string
 }
 
@@ -43,8 +44,8 @@ const Slider = (props: SliderProps) => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
-        {bannerList.map((banner, index) => (
-          <SwiperSlide key={index}>
+        {bannerList.map((banner) => (
+          <SwiperSlide key={banner.id}>
             <img src={banner.imgUrl} alt="banner" />
           </SwiperSlide>
         ))}
