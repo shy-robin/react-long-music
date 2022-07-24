@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Slider from '../../components/slider'
 import RecommendList from '../../components/recommend-list'
 import Scroll from '../../components/scroll'
 import styled from 'styled-components'
-import { getHomeBanner, Banner, getRecommendList, RecommendListItem } from '../../api/home'
+import { useAppDispatch, useAppSelector } from '../../store/hook'
+import { fetchBanner, fetchRecommendList } from '../../store/homeSlice'
 
 const ScrollContainer = styled.div`
   position: absolute;
@@ -15,19 +16,14 @@ const ScrollContainer = styled.div`
 `
 
 const Recommend = () => {
-  const [bannerList, setBannerList] = useState<Banner[]>([])
+  const bannerList = useAppSelector((state) => state.home.bannerList)
+  const recommendList = useAppSelector((state) => state.home.recommendList)
 
-  const [recommendList, setRecommendList] = useState<RecommendListItem[]>([])
-
-  const fetchData = async () => {
-    const { data: bannerData } = await getHomeBanner()
-    setBannerList(bannerData.banners)
-    const { data: recommendData } = await getRecommendList()
-    setRecommendList(recommendData.result)
-  }
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    fetchData()
+    dispatch(fetchBanner())
+    dispatch(fetchRecommendList())
   }, [])
 
   return (
