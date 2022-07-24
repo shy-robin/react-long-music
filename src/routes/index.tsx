@@ -1,8 +1,8 @@
 import { useRoutes } from 'react-router-dom'
-import Layout from '../pages/layout'
-import Rank from '../pages/rank'
-import Recommend from '../pages/recommend'
-import Singers from '../pages/singers'
+import Layout from '@/pages/layout'
+import Rank from '@/pages/rank'
+import Recommend from '@/pages/recommend'
+import Singers from '@/pages/singers'
 
 const Routes = () => {
   const element = useRoutes([

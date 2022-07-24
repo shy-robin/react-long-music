@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { Banner, RecommendListItem, getHomeBanner, getRecommendList } from '../api/home'
+import { Banner, RecommendListItem, getHomeBanner, getRecommendList } from '@/api/home'
 
 interface State {
   bannerList: Banner[]

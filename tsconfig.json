@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": { // 使编辑器提示路径别名
+      "@/*": ["src/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",

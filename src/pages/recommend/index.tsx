@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import Slider from '../../components/slider'
-import RecommendList from '../../components/recommend-list'
-import Scroll from '../../components/scroll'
+import Slider from '@/components/slider'
+import RecommendList from '@/components/recommend-list'
+import Scroll from '@/components/scroll'
 import styled from 'styled-components'
-import { useAppDispatch, useAppSelector } from '../../store/hook'
-import { fetchBanner, fetchRecommendList } from '../../store/homeSlice'
+import { useAppDispatch, useAppSelector } from '@/store/hook'
+import { fetchBanner, fetchRecommendList } from '@/store/homeSlice'
 
 const ScrollContainer = styled.div`
   position: absolute;

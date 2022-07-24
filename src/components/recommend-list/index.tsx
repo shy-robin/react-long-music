@@ -1,9 +1,9 @@
 import React from 'react'
 import { PlayCircleOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
-import commonStyle from '../../assets/css/commonStyle'
-import { formatCount } from '../../utils/format'
-import { RecommendListItem } from '../../api/home'
+import commonStyle from '@/assets/css/commonStyle'
+import { formatCount } from '@/utils/format'
+import { RecommendListItem } from '@/api/home'
 
 interface RecommendListProps {
   recommendList: RecommendListItem[]

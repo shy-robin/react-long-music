@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import commonStyle from '../../assets/css/commonStyle'
+import commonStyle from '@/assets/css/commonStyle'
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons'
 
 const themeColor = commonStyle['theme-color']

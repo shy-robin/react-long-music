@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import commonStyle from '../../assets/css/commonStyle'
-import { Banner } from '../../api/home'
+import commonStyle from '@/assets/css/commonStyle'
+import { Banner } from '@/api/home'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
