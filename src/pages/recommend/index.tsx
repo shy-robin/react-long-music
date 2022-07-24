@@ -1,6 +1,17 @@
 import React from 'react'
 import Slider from '../../components/slider'
 import RecommendList from '../../components/recommend-list'
+import Scroll from '../../components/scroll'
+import styled from 'styled-components'
+
+const ScrollContainer = styled.div`
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+`
 
 const Recommend = () => {
   // mock
@@ -23,10 +34,12 @@ const Recommend = () => {
   })
 
   return (
-    <div>
-      <Slider bannerList={bannerList} />
-      <RecommendList recommendList={recommendList} />
-    </div>
+    <ScrollContainer>
+      <Scroll>
+        <Slider bannerList={bannerList} />
+        <RecommendList recommendList={recommendList} />
+      </Scroll>
+    </ScrollContainer>
   )
 }
 

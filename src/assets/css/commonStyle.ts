@@ -29,6 +29,7 @@ const multiLineEllipsis = (lines: number) => {
 }
 
 const textShadowOnImage = () => {
+  // 注意，linear-gradient 里的颜色值不能简写，否则会无法显示效果
   return `
     position: absolute;
     top: 0;

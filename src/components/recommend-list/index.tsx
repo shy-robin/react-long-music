@@ -69,7 +69,7 @@ const RecommendList = (props: RecommendListProps) => {
       <div className="content">
         {
           recommendList.map((item) => (
-            <div className="item-wrap">
+            <div className="item-wrap" key={item.id}>
               <div className="cover-wrap">
                 <img src={item.picUrl+'?param=300x300'} alt="cover" />
                 <span className='play-count'><PlayCircleOutlined className='icon-play' />{formatCount(item.playCount)}</span>

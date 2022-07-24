@@ -41,8 +41,6 @@ const Slider = (props: SliderProps) => {
         }}
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
       >
         {bannerList.map((banner) => (
           <SwiperSlide key={banner.id}>
