@@ -3,16 +3,10 @@ import { PlayCircleOutlined } from '@ant-design/icons'
 import styled from 'styled-components'
 import commonStyle from '../../assets/css/commonStyle'
 import { formatCount } from '../../utils/format'
-
-interface RecommendItem {
-  id: number
-  picUrl: string
-  playCount: number
-  name: string
-}
+import { RecommendListItem } from '../../api/home'
 
 interface RecommendListProps {
-  recommendList: RecommendItem[]
+  recommendList: RecommendListItem[]
 }
 
 const RecommendListContainer = styled.div`

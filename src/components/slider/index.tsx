@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import commonStyle from '../../assets/css/commonStyle'
+import { Banner } from '../../api/home'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
@@ -18,11 +19,6 @@ const SliderContainer = styled.div`
     background-color: ${themeColor} !important;
   }
 `
-
-interface Banner {
-  id: number
-  imgUrl: string
-}
 
 interface SliderProps {
   bannerList: Banner[]
@@ -43,8 +39,8 @@ const Slider = (props: SliderProps) => {
         pagination={{ clickable: true }}
       >
         {bannerList.map((banner) => (
-          <SwiperSlide key={banner.id}>
-            <img src={banner.imgUrl} alt="banner" />
+          <SwiperSlide key={banner.imageUrl}>
+            <img src={banner.imageUrl} alt="banner" />
           </SwiperSlide>
         ))}
       </Swiper>

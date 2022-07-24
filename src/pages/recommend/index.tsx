@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from '../../components/slider'
 import RecommendList from '../../components/recommend-list'
 import Scroll from '../../components/scroll'
 import styled from 'styled-components'
+import { getHomeBanner, Banner, getRecommendList, RecommendListItem } from '../../api/home'
 
 const ScrollContainer = styled.div`
   position: absolute;
@@ -14,24 +15,20 @@ const ScrollContainer = styled.div`
 `
 
 const Recommend = () => {
-  // mock
-  const bannerList = [1, 2, 3].map((item) => {
-    return {
-      id: item,
-      imgUrl:
-        'http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg',
-    }
-  })
+  const [bannerList, setBannerList] = useState<Banner[]>([])
 
-  const recommendList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-    return {
-      id: item,
-      picUrl:
-        'https://p1.music.126.net/fhmefjUfMD-8qtj3JKeHbA==/18999560928537533.jpg',
-      playCount: 17171122,
-      name: '朴树、许巍、李健、郑钧、老狼、赵雷、许巍、李健、郑钧、老狼、赵雷',
-    }
-  })
+  const [recommendList, setRecommendList] = useState<RecommendListItem[]>([])
+
+  const fetchData = async () => {
+    const { data: bannerData } = await getHomeBanner()
+    setBannerList(bannerData.banners)
+    const { data: recommendData } = await getRecommendList()
+    setRecommendList(recommendData.result)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <ScrollContainer>
