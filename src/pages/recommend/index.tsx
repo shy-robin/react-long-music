@@ -5,6 +5,7 @@ import Scroll from '@/components/scroll'
 import styled from 'styled-components'
 import { useAppDispatch, useAppSelector } from '@/store/hook'
 import { fetchBanner, fetchRecommendList } from '@/store/homeSlice'
+import Loading from '@/components/loading'
 
 const ScrollContainer = styled.div`
   position: absolute;
@@ -18,6 +19,7 @@ const ScrollContainer = styled.div`
 const Recommend = () => {
   const bannerList = useAppSelector((state) => state.home.bannerList)
   const recommendList = useAppSelector((state) => state.home.recommendList)
+  const isLoading = useAppSelector((state) => state.home.isLoading)
 
   const dispatch = useAppDispatch()
 
@@ -29,6 +31,7 @@ const Recommend = () => {
   return (
     <ScrollContainer>
       <Scroll>
+        {isLoading ? <Loading /> : null}
         <Slider bannerList={bannerList} />
         <RecommendList recommendList={recommendList} />
       </Scroll>
