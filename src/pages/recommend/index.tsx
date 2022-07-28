@@ -24,8 +24,8 @@ const Recommend = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchBanner())
-    dispatch(fetchRecommendList())
+    !bannerList.length && dispatch(fetchBanner())
+    !recommendList.length && dispatch(fetchRecommendList())
   }, [])
 
   return (
