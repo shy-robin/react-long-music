@@ -61,7 +61,10 @@ const ScrollContainer = styled.div`
     </Parent>
   其中，name、age 传入到 Scroll 中的 props 里，而 ref 传入到 ref 里。
 */
-const Scroll = React.forwardRef<ScrollHandle, React.PropsWithChildren<ScrollProps>>((props, ref) => {
+const Scroll = React.forwardRef<
+  ScrollHandle,
+  React.PropsWithChildren<ScrollProps>
+>((props, ref) => {
   const {
     direction,
     click,
@@ -154,13 +157,13 @@ const Scroll = React.forwardRef<ScrollHandle, React.PropsWithChildren<ScrollProp
     },
     getScroll() {
       return bScroll
-    }
+    },
   }))
 
   return (
     <ScrollContainer ref={scrollContainerRef}>
       {/* 注意，滚动容器内只能有一个子元素，否则会无法滚动，因此要用 div 包裹需要滚动的内容 */}
-      <div>{props.children}</div>
+      {props.children}
     </ScrollContainer>
   )
 })
