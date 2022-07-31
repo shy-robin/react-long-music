@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import homeReducer from './homeSlice'
+import singerReducer from './singerSlice'
 
 const store = configureStore({
   reducer: {
     home: homeReducer,
+    singer: singerReducer,
   },
 })
 

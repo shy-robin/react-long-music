@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useImperativeHandle } from 'react'
 import BetterScroll from 'better-scroll'
 import styled from 'styled-components'
+import LoadingV2 from '@/components/loading-v2'
 
 interface ScrollProps {
   /** 滚动方向 */
@@ -43,7 +44,22 @@ export interface ScrollHandle {
 const ScrollContainer = styled.div`
   height: 100%;
   width: 100%;
+  position: relative;
   overflow: hidden;
+`
+
+const PullDownLoading = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+`
+
+const PullUpLoading = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `
 
 /*
@@ -164,6 +180,16 @@ const Scroll = React.forwardRef<
     <ScrollContainer ref={scrollContainerRef}>
       {/* 注意，滚动容器内只能有一个子元素，否则会无法滚动，因此要用 div 包裹需要滚动的内容 */}
       {props.children}
+      {pullUpLoading && (
+        <PullUpLoading>
+          <LoadingV2 />
+        </PullUpLoading>
+      )}
+      {pullDownLoading && (
+        <PullDownLoading>
+          <LoadingV2 />
+        </PullDownLoading>
+      )}
     </ScrollContainer>
   )
 })

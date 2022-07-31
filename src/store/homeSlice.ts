@@ -6,13 +6,13 @@ import {
   getRecommendList,
 } from '@/api/home'
 
-interface State {
+interface HomeSliceState {
   bannerList: Banner[]
   recommendList: RecommendListItem[]
   isLoading: boolean
 }
 
-const initialState: State = {
+const initialState: HomeSliceState = {
   bannerList: [],
   recommendList: [],
   isLoading: false,
@@ -33,7 +33,7 @@ export const fetchRecommendList = createAsyncThunk(
 )
 // #endregion
 
-export const counterSlice = createSlice({
+export const homeSlice = createSlice({
   name: 'home',
   initialState,
   reducers: {},
@@ -62,4 +62,4 @@ export const counterSlice = createSlice({
   },
 })
 
-export default counterSlice.reducer
+export default homeSlice.reducer

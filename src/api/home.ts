@@ -1,4 +1,3 @@
-// import ajax from "../utils/request";
 import ajax from '@/utils/request'
 
 export interface Banner {

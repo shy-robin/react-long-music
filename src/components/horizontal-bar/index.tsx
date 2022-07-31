@@ -8,7 +8,7 @@ interface HorizontalBarProps {
   label: string
   list: BarItem[]
   currentKey: string
-  handleClick?: (key: string) => void
+  handleClick?: (key: number) => void
 }
 
 const defaultProps = {
@@ -55,11 +55,11 @@ const HorizontalBar = (props: HorizontalBarProps) => {
       <Scroll direction="horizontal">
         <List>
           <Label>{label}</Label>
-          {list.map((item) => (
+          {list.map((item, index) => (
             <ListItem
               key={item.key}
               className={`item ${item.key === currentKey ? 'active' : ''}`}
-              onClick={() => handleClick(item.key)}
+              onClick={() => handleClick(index)}
             >
               {item.name}
             </ListItem>

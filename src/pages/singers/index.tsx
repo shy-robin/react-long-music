@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 import HorizontalBar from '@/components/horizontal-bar'
 import { SINGER_CATEGORY, INITIALS } from '@/utils/constant'
 import styled from 'styled-components'
+import SingerList from '@/components/singer-list'
+import { useAppDispatch } from '@/store/hook'
+import {
+  changeCategory,
+  changeInitial,
+  fetchSingerList,
+} from '@/store/singerSlice'
 
 const SingersContainer = styled.div``
 
@@ -19,12 +26,18 @@ const Singers = () => {
   const [categoryKey, setCategoryKey] = useState(SINGER_CATEGORY[0].key)
   const [initialKey, setInitialKey] = useState(INITIALS[0].key)
 
-  const handleCategoryItemClick = (key: string) => {
-    setCategoryKey(key)
+  const dispatch = useAppDispatch()
+
+  const handleCategoryItemClick = (index: number) => {
+    setCategoryKey(SINGER_CATEGORY[index].key)
+    dispatch(changeCategory(SINGER_CATEGORY[index].name))
+    dispatch(fetchSingerList())
   }
 
-  const handleInitialItemClick = (key: string) => {
-    setInitialKey(key)
+  const handleInitialItemClick = (index: number) => {
+    setInitialKey(INITIALS[index].key)
+    dispatch(changeInitial(INITIALS[index].name))
+    dispatch(fetchSingerList())
   }
 
   return (
@@ -45,6 +58,7 @@ const Singers = () => {
           handleClick={handleInitialItemClick}
         />
       </InitialWrap>
+      <SingerList />
     </SingersContainer>
   )
 }
